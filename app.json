@@ -1,28 +1,32 @@
 {
   "expo": {
     "name": "BookingFlowMobile",
-    "slug": "BookingFlowMobile",
+    "slug": "bookingflow-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "bookingflowmobile",
+    "scheme": "bookingflow",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1a1a2e"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bookingflow.mobile",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Allow BookingFlow to use Face ID for quick login"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#1a1a2e"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "package": "com.bookingflow.mobile"
     },
     "web": {
       "bundler": "metro",
@@ -30,7 +34,15 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-secure-store",
+      "expo-font",
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Allow BookingFlow to use Face ID for quick login"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
